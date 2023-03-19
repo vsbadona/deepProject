@@ -22,7 +22,7 @@ function App() {
   return (
  <>
  <Navbar/>
- <Sidebar/>
+ <Sidebar data={data}/>
  <Dashboard data={data} key={Math.random()}/>
  <Footer/>
  </>

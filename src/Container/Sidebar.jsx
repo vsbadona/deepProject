@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Sidebar = () => {
+const Sidebar = ({data}) => {
     const [nav,setNav]=useState(false)
   return (
    <div className={`${nav?"w-96" : "w-32"} shadow-2xl rounded-r-xl h-[calc(100vh-85px)] bg-white top-20 fixed`}>
@@ -10,11 +10,10 @@ const Sidebar = () => {
    </div>
    {!nav ? <button className='w-14 h-14 rounded-xl bg-blue-500 text-white text-2xl mx-8 my-12' >1</button>:<div className='flex flex-col items-center justify-center px-5'>
     <ul className='list-disc'>
-        <li className='font-semibold my-5'>Explore the world of management</li>
-        <li>Technical Project Management</li>
-        <li>Threadbuild</li>
-        <li>Structure you pointers</li>
-        <li>4SA Method</li>
+        <li className='font-semibold my-5'>{data.task_title}</li>
+       {data.assets?.map((asset)=>(
+         <li key={asset.asset_id}>{asset.asset_title}</li>
+       ))}
     </ul>
     </div>}
    </div>
