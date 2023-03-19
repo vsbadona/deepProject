@@ -19,13 +19,13 @@ const Container = ({ data }) => {
     return (
         <>
 {/* Video Box */}
-            {data.asset_content_type === "video" && <iframe className='mt-10 mb-20' width="520" height="315" src="https://www.youtube.com/embed/TiMRwri1xJ8" title="Technological Project Management" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>}
+            {data.asset_content_type === "video" && <iframe className='mt-10 mb-20' width="520" height="315" src="https://www.youtube.com/embed/TiMRwri1xJ8" title="Technological Project Management" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>}
 
 {/* threadbuilder box */}
 
             {data.asset_content_type === "threadbuilder" && <div className='w-full overflow-y-scroll h-96'>
                 {threadValue.map((_, index) => (
-                    <div className='my-5'>
+                    <div className='my-5' key={Math.random()}>
                         <div className='w-full h-8 bg-gray-100 my-3 shadow-2xl flex gap-14 items-center px-5 font-bold text-lg'>
                             <i className="fa fa-angle-up"></i>
                             <h1>Thread {String.fromCharCode(65 + index)}</h1>
@@ -33,17 +33,17 @@ const Container = ({ data }) => {
                             }
                         </div>
                         {inputValues.map((value, index) => (
-                            <div className="flex justify-center gap-12 my-5">
+                            <div className="flex justify-center gap-12 my-5" key={Math.random()}>
                                 <div>
                                     <div className='bg-gray-200 h-28 w-48 rounded-xl shadow-2xl '>
                                         <h1 className='px-3 text-sm'>Sub Thread {index + 1}</h1>
                                         <textarea type="text" className='h-20 w-48 rounded-b-xl rounded-t-2xl mt-2 pb-12 px-2 outline-none overflow-auto resize-none' placeholder='Enter Text Here' />
                                     </div>
                                     <div className="flex items-center justify-end gap-3 text-2xl my-3">
-                                        <i style={{ color: "blue" }} class="fa-solid fa-lightbulb"></i>
-                                        <i style={{ color: "blue" }} class="fa-solid fa-message"></i>
-                                        <i style={{ color: "blue" }} class="fa-solid fa-question"></i>
-                                        <i style={{ color: "blue" }} class="fa-solid fa-hand-holding-droplet"></i>
+                                        <i style={{ color: "blue" }} className="fa-solid fa-lightbulb"></i>
+                                        <i style={{ color: "blue" }} className="fa-solid fa-message"></i>
+                                        <i style={{ color: "blue" }} className="fa-solid fa-question"></i>
+                                        <i style={{ color: "blue" }} className="fa-solid fa-hand-holding-droplet"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -163,7 +163,7 @@ const Container = ({ data }) => {
 </div>
     </div>}
     {data.asset_content_type === "4SA"  && 
-     <iframe className='mt-10 mb-20' width="520" height="315" src="https://dtthon.deepthought.education/sharer?id=01aa3cff-db8e-8d9d-afc0-1671715937878" title={data.asset_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+     <iframe className='mt-10 mb-20' width="520" height="315" src="https://dtthon.deepthought.education/sharer?id=01aa3cff-db8e-8d9d-afc0-1671715937878" title={data.asset_title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
     }
         </>
     )

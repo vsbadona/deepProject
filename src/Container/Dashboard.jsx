@@ -1,10 +1,7 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Container from './Container';
-import ThreadBuild from './ThreadBuild'
 
 const Dashboard = ({data}) => {
-    console.log(data);
     const Assets = data.assets
        return (
         <div className='w-5/6 mb-16 mx-auto my-3 mt-24 px-2'>
@@ -19,37 +16,17 @@ const Dashboard = ({data}) => {
             <div className="flex flex-wrap  gap-16 justify-center">
            {Assets?.map((asset)=>{
             return(
-                <div className="w-5/12 h-auto rounded-xl shadow-2xl">
+                <div className="w-5/12 h-auto rounded-xl shadow-2xl" key={asset.asset_id}>
                 <div className="flex justify-center items-center bg-black w-full h-10 rounded-t-xl">
                     <h1 className='text-white'>{asset.asset_title}</h1>
                 </div>
                 <h1 className='mx-3 mt-5'><span className='font-bold'>Description:</span> {asset.asset_description}
                 </h1>
                 
-                <Container data={asset} />
+                <Container data={asset}  />
             </div>
             )
            })}
-                {/* <div className="w-5/12 h-auto rounded-xl shadow-2xl overflow-y-scroll">
-                    <div className="flex justify-center items-center bg-black w-full h-10 rounded-t-xl ">
-                        <h1 className='text-white'>Threadbuild</h1>
-                    </div>
-                    <h1 className='mx-3 mt-5'><span className='font-bold'>Description:</span> Watch the video and thread build, and jot out key threads while watching that video.
-                    </h1>
-            
-            
-
-                </div>
-                <div className="w-5/12 h-auto rounded-xl shadow-2xl">
-                    <div className="flex justify-center items-center bg-black w-full h-10 rounded-t-xl">
-                        <h1 className='text-white'>Structure You Pointers</h1>
-                    </div>
-                </div>
-                <div className="w-5/12 h-auto rounded-xl shadow-2xl">
-                    <div className="flex justify-center items-center bg-black w-full h-10 rounded-t-xl">
-                        <h1 className='text-white'>4SA Method</h1>
-                    </div>
-                </div> */}
             </div>
         </div>
     )
